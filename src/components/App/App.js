@@ -2,10 +2,13 @@ import React, { Component } from "react";
 import { GlobalStyle } from "./GlobalStyle";
 import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "components/ContactList/ContactList";
-import { Filter } from "components/Filter/Filter"
+import { Filter } from "components/Filter/Filter";
+import { Section } from "components/Section/Section";
+import { Header } from "components/Header/Header";
 
 
 import initialContacts from "data/contacts.json";
+
 
 
 
@@ -33,17 +36,33 @@ changeFilter = event => {
   this.setState({ filter: event.currentTarget.value.toLowerCase() });
 }
 
+deleteContact = contactId => {
+  this.setState(prevState => {
+    return {
+      contacts: prevState.contacts.filter(
+        contact => contact.id !== contactId
+      )
+    };
+  })
+};
+
  render() {
   const{ filter } = this.state;
   const { contacts } = this.state;
-  console.log(contacts)
+
   return (
     <div>
-      <ContactForm onAddContact={this.addContact} />
-      <Filter value={ filter} onChange={this.changeFilter} />
-      <ContactList contacts={contacts}/>
+      <Section title="Phonebook" >
+        <ContactForm onAddContact={this.addContact} />
+        <Header title="Contacts"/>
+        <Filter value={ filter} onChange={this.changeFilter} />
+        <ContactList contacts={contacts} onDelete={this.deleteContact}/>
+      </Section>
       <GlobalStyle />
     </div>
+   
+    
+
   );
 };
 

@@ -10,6 +10,7 @@ export const theme = {
       accent: "#9e0202",
       primaryText: "#d6a608",
       primary: "#bdb8b8",
+      green: "#087ea4",
     },
     space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
     fontSizes: {

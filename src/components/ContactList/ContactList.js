@@ -4,7 +4,7 @@ import { List, Item, DeleteBtn } from "./ContactList.styled";
 
 
 
-export const ContactList = ({ contacts }) => {
+export const ContactList = ({ contacts, onDelete }) => {
     return (
     <List>
         {contacts.map(({ name, number, id }) => {
@@ -13,7 +13,7 @@ export const ContactList = ({ contacts }) => {
                 <span>{name}:</span>
                 <span>{number}</span>
               
-                <DeleteBtn type="button"></DeleteBtn>
+                <DeleteBtn type="button" onClick={() => onDelete(id)}>Delete</DeleteBtn>
               </Item>
               
             )}

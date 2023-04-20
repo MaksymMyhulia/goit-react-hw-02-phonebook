@@ -26,7 +26,7 @@ max-width: 100%;
 `;
 
 export const LabelWrapper = styled.div`
-gisplay; flex;
+gisplay: flex;
 gap: ${({theme}) => theme.space[3]}px;
 margin-left: ${({theme}) => theme.space[3]}px;
 `;
