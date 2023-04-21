@@ -22,9 +22,9 @@ state = {
 
 addContact = newContact => {
    this.state.contacts.some( contact =>
-     contact.name.toLowerCase().trim() === newContact.number.trim() ||
+     contact.name.toLowerCase().trim() === newContact.name.trim() ||
      contact.number.trim() === newContact.number.trim()
-     ).length
+     )
      ? alert(`${newContact.name} is already in contacts.`)
      : this.setState(prevState => {
        return {
