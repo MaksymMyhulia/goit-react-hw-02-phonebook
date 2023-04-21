@@ -1,5 +1,6 @@
 import React from "react";
 import { ContainerStyled, MainStyled } from "./Container.styled";
+import PropTypes from "prop-types";
 
 export const Container = ({ children }) => {
     return (
@@ -8,3 +9,8 @@ export const Container = ({ children }) => {
         </ContainerStyled>
     )
 }
+
+
+Container.propTypes = {
+children: PropTypes.node.isRequired,
+};

@@ -21,15 +21,15 @@ state = {
 };
 
 addContact = newContact => {
-  this.state.contacts.filter( contact =>
-    contact.name.toLowerCase().trim() === newContact.number.trim() ||
-    contact.number.trim() === newContact.number.trim()
-    ).length
-    ? alert(`${newContact.name} is already in contacts.`)
-    : this.setState(prevState => {
-      return {
-        contacts: [newContact, ...prevState.contacts],
-      };
+   this.state.contacts.some( contact =>
+     contact.name.toLowerCase().trim() === newContact.number.trim() ||
+     contact.number.trim() === newContact.number.trim()
+     ).length
+     ? alert(`${newContact.name} is already in contacts.`)
+     : this.setState(prevState => {
+       return {
+         contacts: [newContact, ...prevState.contacts],
+       };
     })
 };
 
