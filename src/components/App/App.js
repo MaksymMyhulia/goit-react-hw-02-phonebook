@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { GlobalStyle } from "./GlobalStyle";
-import { ContactForm } from "./ContactForm/ContactForm";
+import { ContactForm } from "components/ContactForm/ContactForm";
 import { ContactList } from "components/ContactList/ContactList";
 import { Filter } from "components/Filter/Filter";
 import { Section } from "components/Section/Section";
@@ -63,7 +63,7 @@ getFiltredContacts = () => {
   return (
     <Container>
             <Section title="Phonebook" >
-              <ContactForm onAddContact={this.addContact} />
+              <ContactForm onAddContact={this.addContact}/>
               <Header title="Contacts"/>
               <Filter value={filter} onChange={this.changeFilter} />
               <ContactList contacts={filtredContacts} onDelete={this.deleteContact}/>

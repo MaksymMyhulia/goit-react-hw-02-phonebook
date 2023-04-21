@@ -32,15 +32,19 @@ const schema = Yup.object().shape({
 })
 
 export const ContactForm = ({ onAddContact }) => {
+    const handleSubmit = (values, { resetForm }) => {
+        onAddContact({id:nanoid(), ...values});
+        resetForm()
+    };
+
     return (
       <Formik
         initialValues={{
           name:"",
           number:"",
         }}
-        onSubmit={(values) => {
-            onAddContact({id:nanoid(), ...values});
-        }}
+
+        onSubmit={handleSubmit}
 
         validationSchema={schema}
       >
